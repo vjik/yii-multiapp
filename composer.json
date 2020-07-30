@@ -15,6 +15,7 @@
         "yiisoft/log-target-file": "@dev",
         "yiisoft/router-fastroute": "@dev",
         "yiisoft/yii-console": "@dev",
+        "yiisoft/yii-cycle": "^3.0@dev",
         "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
@@ -28,7 +29,10 @@
     "extra": {
         "config-plugin-output-dir": "runtime/config",
         "config-plugin": {
-            "params": "config/common/params.php",
+            "params": [
+                "config/common/params.php",
+                "?config/common/params-local.php"
+            ],
             "common": "config/common/common.php",
             "web": "config/common/web.php",
             "console": [
