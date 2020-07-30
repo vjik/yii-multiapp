@@ -14,6 +14,7 @@
         "yiisoft/log": "@dev",
         "yiisoft/log-target-file": "@dev",
         "yiisoft/router-fastroute": "@dev",
+        "yiisoft/yii-console": "@dev",
         "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
@@ -30,6 +31,10 @@
             "params": "config/common/params.php",
             "common": "config/common/common.php",
             "web": "config/common/web.php",
+            "console": [
+                "$common",
+                "config/console/main.php"
+            ],
             "app-main": [
                 "$common",
                 "$web",
@@ -40,6 +45,10 @@
                 "$providers",
                 "config/common/providers-web.php"
             ],
+            "providers-console": [
+                "$providers",
+                "config/console/providers.php"
+            ],
             "providers-app-main": [
                 "$providers-web",
                 "config/app-main/providers.php"
@@ -48,6 +57,10 @@
             "events-web": [
                 "$events",
                 "config/common/events-web.php"
+            ],
+            "events-console": [
+                "$events",
+                "config/console/events.php"
             ],
             "events-app-main": [
                 "$events-web",
