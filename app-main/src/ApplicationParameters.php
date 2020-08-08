@@ -18,4 +18,18 @@ final class ApplicationParameters
     {
         return $this->language;
     }
+
+    public function charset(string $value): self
+    {
+        $new = clone $this;
+        $new->charset = $value;
+        return $new;
+    }
+
+    public function language(string $value): self
+    {
+        $new = clone $this;
+        $new->language = $value;
+        return $new;
+    }
 }

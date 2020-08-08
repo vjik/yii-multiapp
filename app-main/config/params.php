@@ -10,6 +10,7 @@ return [
         '@resources' => '@app/resources',
         '@views' => '@resources/views',
     ],
+
     'yiisoft/log-target-file' => [
         'file-target' => [
             'file' => '@runtime/logs/app-main.log',
@@ -20,5 +21,10 @@ return [
         'defaultParameters' => [
             'applicationParameters' => ApplicationParameters::class,
         ],
+    ],
+
+    'app' => [
+        'charset' => 'UTF-8',
+        'language' => 'en',
     ],
 ];
