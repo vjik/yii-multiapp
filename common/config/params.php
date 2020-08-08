@@ -80,5 +80,6 @@ return [
         'annotated-entity-paths' => [],
     ],
 
-    'app-main' => require dirname(__DIR__) . '/app-main/params.php',
+    // @todo Use merge params when added https://github.com/yiisoft/composer-config-plugin/issues/99
+    'app-main' => require dirname(__DIR__, 2) . '/app-main/config/params.php',
 ];

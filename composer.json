@@ -22,55 +22,57 @@
     },
     "autoload": {
         "psr-4": {
-            "Common\\": "common",
-            "AppMain\\": "app-main"
+            "Common\\": "common/src",
+            "AppMain\\": "app-main/src"
         }
     },
     "extra": {
         "config-plugin-output-dir": "runtime/config",
         "config-plugin": {
             "params": [
-                "config/common/params.php",
-                "?config/common/params-local.php"
+                "common/config/params.php",
+                "?common/config/params-local.php"
             ],
-            "common": "config/common/common.php",
-            "web": "config/common/web.php",
+            "common": "common/config/common.php",
+            "web": [
+                "$common",
+                "common/config/web.php"
+            ],
             "console": [
                 "$common",
-                "config/console/main.php"
+                "common/config/console.php"
             ],
             "app-main": [
-                "$common",
                 "$web",
-                "config/app-main/main.php"
+                "app-main/config/main.php"
             ],
-            "providers": "config/common/providers.php",
+            "providers": "common/config/providers.php",
             "providers-web": [
                 "$providers",
-                "config/common/providers-web.php"
+                "common/config/providers-web.php"
             ],
             "providers-console": [
                 "$providers",
-                "config/console/providers.php"
+                "common/config/providers-console.php"
             ],
             "providers-app-main": [
                 "$providers-web",
-                "config/app-main/providers.php"
+                "app-main/config/providers.php"
             ],
-            "events": "config/common/events.php",
+            "events": "common/config/events.php",
             "events-web": [
                 "$events",
-                "config/common/events-web.php"
+                "common/config/events-web.php"
             ],
             "events-console": [
                 "$events",
-                "config/console/events.php"
+                "common/config/events-console.php"
             ],
             "events-app-main": [
                 "$events-web",
-                "config/app-main/events.php"
+                "app-main/config/events.php"
             ],
-            "routes-app-main": "config/app-main/routes.php"
+            "routes-app-main": "app-main/config/routes.php"
         }
     },
     "config": {
