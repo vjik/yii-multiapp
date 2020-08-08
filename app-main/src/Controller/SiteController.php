@@ -5,13 +5,24 @@ declare(strict_types=1);
 namespace AppMain\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Yiisoft\DataResponse\DataResponseFactoryInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Yiisoft\Yii\Web\Middleware\Csrf;
 
-class SiteController
+class SiteController extends AbstractController
 {
 
-    public function index(DataResponseFactoryInterface $responseFactory): ResponseInterface
+    public function index(ServerRequestInterface $request): ResponseInterface
     {
-        return $responseFactory->createResponse('Hello World!');
+        return $this->render(
+            'site/index',
+            [
+                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
+            ]
+        );
+    }
+
+    public function getViewPath(): string
+    {
+        return $this->aliases->get('@views');
     }
 }

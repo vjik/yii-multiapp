@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Common\CommonParameters;
 use Psr\Log\LogLevel;
 
 return [
@@ -28,6 +29,23 @@ return [
             'filemode' => null,
             'rotatebycopy' => null
         ],
+    ],
+
+    'yiisoft/view' => [
+        'basePath' => null, // Should be overwritted in app params
+        'defaultParameters' => [
+            'commonParameters' => CommonParameters::class,
+            // @todo Разобраться
+//            'assetManager' => AssetManager::class,
+//            'field' => Field::class,
+//            'url' => UrlGeneratorInterface::class,
+//            'urlMatcher' => UrlMatcherInterface::class,
+        ],
+        'theme' => [
+            'pathMap' => [],
+            'basePath' => '',
+            'baseUrl' => '',
+        ]
     ],
 
     'yiisoft/yii-web' => [

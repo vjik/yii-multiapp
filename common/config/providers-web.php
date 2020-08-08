@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 use Common\Provider\Psr17Provider;
 use Common\Provider\SessionProvider;
+use Common\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
@@ -15,6 +16,13 @@ return [
         '__construct()' => [
             $params['yiisoft/yii-web']['session']['options'],
             $params['yiisoft/yii-web']['session']['handler']
+        ],
+    ],
+    'yiisoft/view/webview' => [
+        '__class' => WebViewProvider::class,
+        '__construct()' => [
+            $params['yiisoft/view']['basePath'],
+            $params['yiisoft/view']['defaultParameters'],
         ],
     ],
 
