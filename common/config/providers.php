@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 /* @var array $params */
 
-use Common\Provider\EventDispatcherProvider;
 use Common\Provider\FileRotatorProvider;
 use Common\Provider\FileTargetProvider;
 use Common\Provider\LoggerProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
-    'yiisoft/event-dispatcher/eventdispatcher' => EventDispatcherProvider::class,
-
     'yiisoft/log-target-file/filerotator' => [
         '__class' => FileRotatorProvider::class,
         '__construct()' => [
