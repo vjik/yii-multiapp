@@ -23,8 +23,8 @@ Builder::rebuild();
 $startTime = microtime(true);
 
 $container = new Container(
-    require Builder::path('app-main'),
-    require Builder::path('providers-app-main')
+    require Builder::path('app-main/app'),
+    require Builder::path('app-main/providers-app')
 );
 
 /** @var Application $application */

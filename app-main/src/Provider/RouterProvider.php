@@ -30,7 +30,7 @@ final class RouterProvider extends ServiceProvider
     public static function getMatcher(ContainerInterface $container): UrlMatcherInterface
     {
         /** @noinspection PhpIncludeInspection */
-        $routes = require Builder::path('routes-app-main');
+        $routes = require Builder::path('app-main/routes');
 
         $collector = $container->get(RouteCollectorInterface::class);
         $collector->addGroup(

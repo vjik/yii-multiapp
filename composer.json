@@ -43,10 +43,6 @@
                 "$common",
                 "common/config/console.php"
             ],
-            "app-main": [
-                "$web",
-                "app-main/config/main.php"
-            ],
             "events": "common/config/events.php",
             "events-web": [
                 "$events",
@@ -56,10 +52,6 @@
                 "$events",
                 "common/config/events-console.php"
             ],
-            "events-app-main": [
-                "$events-web",
-                "app-main/config/events.php"
-            ],
             "providers": "common/config/providers.php",
             "providers-web": [
                 "$providers",
@@ -68,12 +60,25 @@
             "providers-console": [
                 "$providers",
                 "common/config/providers-console.php"
-            ],
-            "providers-app-main": [
-                "$providers-web",
-                "app-main/config/providers.php"
-            ],
-            "routes-app-main": "app-main/config/routes.php"
+            ]
+        },
+        "config-plugin-alternatives": {
+            "app-main": {
+                "params": "app-main/config/params.php",
+                "app": [
+                    "$web",
+                    "app-main/config/app.php"
+                ],
+                "events-app": [
+                    "$events-web",
+                    "app-main/config/events-app.php"
+                ],
+                "providers-app": [
+                    "$providers-web",
+                    "app-main/config/providers-app.php"
+                ],
+                "routes": "app-main/config/routes.php"
+            }
         }
     },
     "config": {
