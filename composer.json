@@ -13,11 +13,11 @@
         "yiisoft/di": "@dev",
         "yiisoft/log": "@dev",
         "yiisoft/log-target-file": "@dev",
-        "yiisoft/router-fastroute": "@dev",
+        "yiisoft/router-fastroute": "^3.0@dev",
         "yiisoft/view": "^3.0@dev",
         "yiisoft/yii-console": "@dev",
         "yiisoft/yii-cycle": "^3.0@dev",
-        "yiisoft/yii-web": "@dev"
+        "yiisoft/yii-web": "^3.0@dev"
     },
     "require-dev": {
     },
