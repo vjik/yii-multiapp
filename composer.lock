@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64173ea1fb1d1e4d3abf835c83faf08b",
+    "content-hash": "8a9434745c969e7a1098ee8bd7e5f1d0",
     "packages": [
         {
             "name": "alexkart/curl-builder",
@@ -4234,12 +4234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/composer-config-plugin.git",
-                "reference": "37b6891c3283a5639df3e7676283f960b9087b84"
+                "reference": "c3aad064a79f97bb165fa31ddd198bd70d3734c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/composer-config-plugin/zipball/37b6891c3283a5639df3e7676283f960b9087b84",
-                "reference": "37b6891c3283a5639df3e7676283f960b9087b84",
+                "url": "https://api.github.com/repos/yiisoft/composer-config-plugin/zipball/c3aad064a79f97bb165fa31ddd198bd70d3734c6",
+                "reference": "c3aad064a79f97bb165fa31ddd198bd70d3734c6",
                 "shasum": ""
             },
             "require": {
@@ -4292,7 +4292,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-08-14T14:52:16+00:00"
+            "time": "2020-08-15T17:15:52+00:00"
         },
         {
             "name": "yiisoft/data",
@@ -5643,12 +5643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii-console.git",
-                "reference": "78d0c0249c5438c744cf50dea2b777f337715c17"
+                "reference": "1301309db8ee2063d8e60e985ff1dc1c2d85dc92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii-console/zipball/78d0c0249c5438c744cf50dea2b777f337715c17",
-                "reference": "78d0c0249c5438c744cf50dea2b777f337715c17",
+                "url": "https://api.github.com/repos/yiisoft/yii-console/zipball/1301309db8ee2063d8e60e985ff1dc1c2d85dc92",
+                "reference": "1301309db8ee2063d8e60e985ff1dc1c2d85dc92",
                 "shasum": ""
             },
             "require": {
@@ -5714,7 +5714,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-08-11T07:42:29+00:00"
+            "time": "2020-08-15T18:22:27+00:00"
         },
         {
             "name": "yiisoft/yii-cycle",
@@ -5796,12 +5796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii-event.git",
-                "reference": "19d311bc4dbb845862414f32dfb2471930350c6d"
+                "reference": "9039076803a02c2fcb1c814d34e61e2cea21d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii-event/zipball/19d311bc4dbb845862414f32dfb2471930350c6d",
-                "reference": "19d311bc4dbb845862414f32dfb2471930350c6d",
+                "url": "https://api.github.com/repos/yiisoft/yii-event/zipball/9039076803a02c2fcb1c814d34e61e2cea21d87c",
+                "reference": "9039076803a02c2fcb1c814d34e61e2cea21d87c",
                 "shasum": ""
             },
             "require": {
@@ -5847,7 +5847,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-08-10T18:40:07+00:00"
+            "time": "2020-08-15T18:19:51+00:00"
         },
         {
             "name": "yiisoft/yii-web",

@@ -3,20 +3,23 @@
 declare(strict_types=1);
 
 /* @var array $params */
-/* @var array $config */
 
 use AppMain\Provider\MiddlewareProvider;
 use AppMain\Provider\RouterProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Composer\Config\Builder;
 use Yiisoft\Yii\Event\EventDispatcherProvider;
 
 return [
-    'yiisoft/router-fastroute/router' => RouterProvider::class,
+    'yiisoft/router-fastroute/router' => [
+        '__class' => RouterProvider::class,
+        '__construct()' => [Builder::require('routes')],
+    ],
     'yiisoft/yii-web/middleware' => MiddlewareProvider::class,
 
     'yiisoft/event-dispatcher/eventdispatcher' => [
         '__class' => EventDispatcherProvider::class,
-        '__construct()' => [$config['events-app']],
+        '__construct()' => [Builder::require('events-app')],
     ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge(),
