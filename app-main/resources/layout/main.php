@@ -15,7 +15,7 @@ use Yiisoft\Html\Html;
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Html::encode($applicationParameters->getLanguage()) ?>">
-<?= $this->render('_head', ['csrf' => $csrf]) ?>
+<?= $this->render('_head') ?>
 <?php $this->beginBody() ?>
 <body>
 <?= $content ?>
