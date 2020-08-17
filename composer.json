@@ -24,6 +24,7 @@
     "autoload": {
         "psr-4": {
             "Common\\": "common/src",
+            "AppAdmin\\": "app-admin/src",
             "AppMain\\": "app-main/src"
         }
     },
@@ -63,6 +64,22 @@
             ]
         },
         "config-plugin-alternatives": {
+            "app-admin": {
+                "params": "app-admin/config/params.php",
+                "app": [
+                    "$web",
+                    "app-admin/config/app.php"
+                ],
+                "events-app": [
+                    "$events-web",
+                    "app-admin/config/events-app.php"
+                ],
+                "providers-app": [
+                    "$providers-web",
+                    "app-admin/config/providers-app.php"
+                ],
+                "routes": "app-admin/config/routes.php"
+            },
             "app-main": {
                 "params": "app-main/config/params.php",
                 "app": [
