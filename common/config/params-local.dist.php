@@ -8,6 +8,7 @@ return [
             'connections' => [
                 'mysql' => [
                     'driver' => \Spiral\Database\Driver\MySQL\MySQLDriver::class,
+                    /** @see https://www.php.net/manual/ru/ref.pdo-mysql.connection.php */
                     'connection' => 'mysql:host=localhost;dbname=',
                     'username' => '',
                     'password' => '',

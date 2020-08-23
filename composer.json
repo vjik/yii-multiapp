@@ -25,6 +25,9 @@
     "autoload": {
         "psr-4": {
             "Common\\": "common/src",
+            "Common\\Migration\\": "common/migrations",
+            "Domain\\": "domain",
+            "Console\\": "console/src",
             "AppAdmin\\": "app-admin/src",
             "AppMain\\": "app-main/src"
         }
