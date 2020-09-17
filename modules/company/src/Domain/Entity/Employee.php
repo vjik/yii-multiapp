@@ -1,6 +1,8 @@
 <?php
 
-namespace Domain\Company\Entity;
+declare(strict_types=1);
+
+namespace Module\Company\Domain\Entity;
 
 use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
@@ -13,7 +15,7 @@ use Yiisoft\Security\PasswordHasher;
  * @Entity(
  *     role="employee",
  *     table="employee",
- *     repository="\Domain\Company\Repository\EmployeeRepository"
+ *     repository="\Module\Company\Infrastructure\Repository\EmployeeRepository"
  * )
  * @Table(
  *     indexes={
@@ -23,7 +25,6 @@ use Yiisoft\Security\PasswordHasher;
  */
 class Employee implements IdentityInterface
 {
-
     /**
      * @Column(type="primary")
      */

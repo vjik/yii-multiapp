@@ -9,7 +9,7 @@ return [
     'aliases' => [
         '@root' => dirname(__DIR__, 2),
         '@common' => '@root/common',
-        '@domain' => '@root/domain',
+        '@modules' => '@root/modules',
         '@runtime' => '@root/runtime',
     ],
 
@@ -94,7 +94,7 @@ return [
             \Yiisoft\Yii\Cycle\Schema\Provider\FromConveyorSchemaProvider::class,
         ],
         'annotated-entity-paths' => [
-            '@domain/Company/Entity',
+            '@modules/company/src/Domain/Entity',
         ],
     ],
 ];

@@ -2,8 +2,7 @@
 
 namespace Console\Command\Employee;
 
-use Domain\Company\Service\EmployeeService;
-use Psr\Container\ContainerInterface;
+use Module\Company\Domain\Service\EmployeeService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,7 +12,6 @@ use Yiisoft\Yii\Console\ExitCode;
 
 class CreateCommand extends Command
 {
-
     private EmployeeService $employeeService;
 
     protected static $defaultName = 'employee/create';

@@ -28,8 +28,8 @@
         "psr-4": {
             "Common\\": "common/src",
             "Common\\Migration\\": "common/migrations",
-            "Domain\\": "domain",
             "Console\\": "console/src",
+            "Module\\Company\\": "modules/company/src",
             "AppAdmin\\": "app-admin/src",
             "AppMain\\": "app-main/src"
         }
@@ -41,7 +41,10 @@
                 "common/config/params.php",
                 "?common/config/params-local.php"
             ],
-            "common": "common/config/common.php",
+            "common": [
+                "common/config/common.php",
+                "modules/company/config/common.php"
+            ],
             "web": [
                 "$common",
                 "common/config/web.php"

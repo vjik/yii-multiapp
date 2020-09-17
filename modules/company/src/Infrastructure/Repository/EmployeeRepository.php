@@ -1,18 +1,23 @@
 <?php
 
-namespace Domain\Company\Repository;
+declare(strict_types=1);
+
+namespace Module\Company\Infrastructure\Repository;
 
 use Common\Repository\NotFoundException;
 use Cycle\ORM\RepositoryInterface;
 use Cycle\ORM\Select;
 use Cycle\ORM\Transaction;
-use Domain\Company\Entity\Employee;
+use Module\Company\Domain\Entity\Employee;
+use Module\Company\Domain\Entity\EmployeeRepositoryInterface;
 use RuntimeException;
+use Throwable;
 use Yiisoft\Auth\IdentityInterface;
 use Yiisoft\Auth\IdentityRepositoryInterface;
 use Yiisoft\Yii\Cycle\Command\CycleDependencyProxy;
 
 final class EmployeeRepository implements
+    EmployeeRepositoryInterface,
     IdentityRepositoryInterface,
     RepositoryInterface
 {
@@ -44,7 +49,7 @@ final class EmployeeRepository implements
 
     /**
      * @param Employee $employee
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function save(Employee $employee)
     {
@@ -59,7 +64,7 @@ final class EmployeeRepository implements
         return $this->findByPK($id);
     }
 
-    public function findIdentityByToken(string $token, string $type): ?IdentityInterface
+    public function findIdentityByToken(string $token, string $type = null): ?IdentityInterface
     {
         throw new RuntimeException('"findIdentityByToken" is not implemented.');
     }
@@ -88,12 +93,11 @@ final class EmployeeRepository implements
 
     /**
      * @param array $scope
-     * @param array $orderBy
      * @return Employee[]|iterable
      */
-    public function findAll(array $scope = [], array $orderBy = []): iterable
+    public function findAll(array $scope = []): iterable
     {
-        return $this->select()->where($scope)->orderBy($orderBy)->fetchAll();
+        return $this->select()->where($scope)->fetchAll();
     }
 
     private function select(): Select

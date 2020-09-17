@@ -1,16 +1,18 @@
 <?php
 
-namespace Domain\Company\Service;
+declare(strict_types=1);
 
-use Domain\Company\Entity\Employee;
-use Domain\Company\Repository\EmployeeRepository;
+namespace Module\Company\Domain\Service;
+
+use Module\Company\Domain\Entity\Employee;
+use Module\Company\Domain\Entity\EmployeeRepositoryInterface;
+use Throwable;
 
 class EmployeeService
 {
+    private EmployeeRepositoryInterface $employees;
 
-    private EmployeeRepository $employees;
-
-    public function __construct(EmployeeRepository $employees)
+    public function __construct(EmployeeRepositoryInterface $employees)
     {
         $this->employees = $employees;
     }
@@ -19,7 +21,7 @@ class EmployeeService
      * @param string $login
      * @param string $password
      * @return Employee
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function create(string $login, string $password): Employee
     {
