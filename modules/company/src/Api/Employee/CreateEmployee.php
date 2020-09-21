@@ -7,8 +7,7 @@ namespace Module\Company\Api\Employee;
 use Module\Company\Api\Dto\Employee\CreateEmployee\CreateEmployeeDto;
 use Module\Company\Api\Dto\Employee\Employee\EmployeeDto;
 use Module\Company\Api\Dto\Employee\Employee\EmployeeDtoFactory;
-use Module\Company\Application\Employee\EmployeeService;
-use Throwable;
+use Module\Company\Domain\Service\Employee\EmployeeService;
 
 final class CreateEmployee
 {
@@ -23,14 +22,9 @@ final class CreateEmployee
         $this->employeeDtoFactory = $employeeDtoFactory;
     }
 
-    /**
-     * @param CreateEmployeeDto $dto
-     * @return EmployeeDto
-     * @throws Throwable
-     */
     public function handle(CreateEmployeeDto $dto): EmployeeDto
     {
-        $employee = $this->employeeService->create($dto);
+        $employee = $this->employeeService->create($dto->login, $dto->password);
         return $this->employeeDtoFactory->make($employee);
     }
 }

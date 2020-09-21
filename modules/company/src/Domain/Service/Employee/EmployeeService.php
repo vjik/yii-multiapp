@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Module\Company\Application\Employee;
+namespace Module\Company\Domain\Service\Employee;
 
-use Module\Company\Api\Dto\Employee\CreateEmployee\CreateEmployeeDto;
 use Module\Company\Domain\Entity\Employee;
 use Module\Company\Domain\Entity\EmployeeRepositoryInterface;
-use Throwable;
 
 final class EmployeeService
 {
@@ -18,14 +16,12 @@ final class EmployeeService
         $this->employees = $employees;
     }
 
-    /**
-     * @param CreateEmployeeDto $dto
-     * @return Employee
-     * @throws Throwable
-     */
-    public function create(CreateEmployeeDto $dto): Employee
+    public function create(string $login, string $password): Employee
     {
-        $employee = new Employee($dto->login, $dto->password);
+        if ($this->employees->existsByLogin($login)) {
+            throw new LoginAlreadyExists();
+        }
+        $employee = new Employee($login, $password);
         $this->employees->save($employee);
         return $employee;
     }
