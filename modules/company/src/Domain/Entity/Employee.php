@@ -4,40 +4,13 @@ declare(strict_types=1);
 
 namespace Module\Company\Domain\Entity;
 
-use Cycle\Annotated\Annotation\Column;
-use Cycle\Annotated\Annotation\Entity;
-use Cycle\Annotated\Annotation\Table;
-use Cycle\Annotated\Annotation\Table\Index;
 use Yiisoft\Auth\IdentityInterface;
 use Yiisoft\Security\PasswordHasher;
 
-/**
- * @Entity(
- *     role="employee",
- *     table="employee",
- *     repository="\Module\Company\Infrastructure\Repository\EmployeeRepository"
- * )
- * @Table(
- *     indexes={
- *         @Index(columns={"login"}, unique=true),
- *     }
- * )
- */
 class Employee implements IdentityInterface
 {
-    /**
-     * @Column(type="primary")
-     */
     private ?int $id = null;
-
-    /**
-     * @Column(type="string(48)")
-     */
     private string $login;
-
-    /**
-     * @Column(name="password_hash",type="string(191)")
-     */
     private string $passwordHash;
 
     public function __construct(string $login, string $password)

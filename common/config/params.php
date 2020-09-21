@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Common\CommonParameters;
 use Psr\Log\LogLevel;
+use Yiisoft\Composer\Config\Builder;
 
 return [
     'aliases' => [
@@ -88,10 +89,10 @@ return [
 //            \Yiisoft\Yii\Cycle\Schema\Provider\SimpleCacheSchemaProvider::class => [
 //                'key' => 'my-custom-cache-key'
 //            ],
-//            \Yiisoft\Yii\Cycle\Schema\Provider\FromFileSchemaProvider::class => [
-//                'file' => '@runtime/cycle-schema.php'
-//            ],
-            \Yiisoft\Yii\Cycle\Schema\Provider\FromConveyorSchemaProvider::class,
+            \Yiisoft\Yii\Cycle\Schema\Provider\FromFilesSchemaProvider::class => [
+                'files' => [Builder::path('cycle-schema')],
+                'strict' => true,
+            ],
         ],
         'annotated-entity-paths' => [
             '@modules/company/src/Domain/Entity',

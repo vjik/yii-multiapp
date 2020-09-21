@@ -70,6 +70,9 @@
             "providers-console": [
                 "$providers",
                 "common/config/providers-console.php"
+            ],
+            "cycle-schema": [
+                "modules/company/config/cycle-schema.php"
             ]
         },
         "config-plugin-alternatives": {
