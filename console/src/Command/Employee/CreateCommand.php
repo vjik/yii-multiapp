@@ -1,24 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Console\Command\Employee;
 
-use Module\Company\Domain\Service\EmployeeService;
+use Module\Company\Api\Dto\Employee\CreateEmployee\CreateEmployeeDto;
+use Module\Company\Api\Employee\CreateEmployee;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Throwable;
 use Yiisoft\Yii\Console\ExitCode;
 
-class CreateCommand extends Command
+final class CreateCommand extends Command
 {
-    private EmployeeService $employeeService;
+    private CreateEmployee $createEmployee;
 
     protected static $defaultName = 'employee/create';
 
-    public function __construct(EmployeeService $employeeService)
+    public function __construct(CreateEmployee $createEmployee)
     {
-        $this->employeeService = $employeeService;
+        $this->createEmployee = $createEmployee;
         parent::__construct();
     }
 
@@ -34,13 +38,15 @@ class CreateCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+
+        $dto = new CreateEmployeeDto();
+        $dto->login = (string)$input->getArgument('login');
+        $dto->password = (string)$input->getArgument('password');
+
         try {
-            $this->employeeService->create(
-                $input->getArgument('login'),
-                $input->getArgument('password')
-            );
-            $io->success('Employee created.');
-        } catch (\Throwable $t) {
+            $employeeDto = $this->createEmployee->handle($dto);
+            $io->success('Employee "' . $employeeDto->login . '" created.');
+        } catch (Throwable $t) {
             $io->error($t->getMessage());
             return $t->getCode() ?: ExitCode::UNSPECIFIED_ERROR;
         }

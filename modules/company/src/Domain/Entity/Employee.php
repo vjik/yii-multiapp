@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Module\Company\Domain\Entity;
 
-use Yiisoft\Auth\IdentityInterface;
+use LogicException;
 use Yiisoft\Security\PasswordHasher;
 
-class Employee implements IdentityInterface
+final class Employee
 {
     private ?int $id = null;
     private string $login;
@@ -19,9 +19,12 @@ class Employee implements IdentityInterface
         $this->setPassword($password);
     }
 
-    public function getId(): ?string
+    public function getId(): int
     {
-        return $this->id === null ? null : (string)$this->id;
+        if ($this->id === null) {
+            throw new LogicException('ID not available for new employee.');
+        }
+        return $this->id;
     }
 
     public function getLogin(): string
